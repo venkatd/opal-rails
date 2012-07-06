@@ -1,4 +1,5 @@
 require 'opal'
+require 'opal/source_map'
 require 'opal/rails/engine'
 require 'opal/rails/template_handler'
 require 'opal/rails/processor'

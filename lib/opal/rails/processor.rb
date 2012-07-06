@@ -21,7 +21,8 @@ module Opal
       end
 
       def evaluate(scope, locals, &block)
-        Opal.parse(data)
+        raise inspect
+        Opal.parse(data, @file)
       end
     end
   end

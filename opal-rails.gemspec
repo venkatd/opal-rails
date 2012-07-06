@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'opal-dom'
   s.add_runtime_dependency 'rails', '~> 3.2.0'
   s.add_runtime_dependency 'sprockets', '~> 2.1'
+  s.add_runtime_dependency 'source_map', '>= 0'
   
   s.add_development_dependency 'rspec', '~> 2.4'
   s.add_development_dependency 'rspec-rails', '~> 2.4'

@@ -7,7 +7,7 @@ module Opal
       attr_accessor :source_map, :source_map_path
       def source_map_path= path
         @source_map_path = path
-        self << "\n//@ sourceMappingURL=#{source_map_path}"
+        self << "\n//@ sourceMappingURL=file://#{source_map_path}"
       end
     end
     

@@ -11,6 +11,10 @@ module Opal
       end
     end
     
+    class << self
+      attr_accessor :maps_dir # Rails.root.join("public/__source_maps__/")
+    end
+    
     def parse_with_source_map source, file='(file)'
       parse_without_source_map(source, file).tap do |parsed|
         map = ::SourceMap.new(:file => file)
@@ -30,9 +34,9 @@ module Opal
           )
         end
         
-        map_dir = Rails.root.join("public/__source_maps__/")
-        File.mkdir map_dir
-        map_path = File.join(map_dir, "#{file}.map")
+        map_dir = Opal::SourceMap.maps_dir
+        FileUtils.mkdir_p map_dir
+        map_path = File.join(map_dir, "#{File.basename file}.map")
         parsed.extend StringWithSourceMap
         parsed.source_map = map
         parsed.source_map_path = map_path

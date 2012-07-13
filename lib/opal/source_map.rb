@@ -4,9 +4,10 @@ require 'source_map'
 module Opal
   module SourceMap
     module StringWithSourceMap
-      attr_accessor :source_map
+      attr_accessor :source_map, :source_map_path
       def source_map_path= path
-        self << "\n//@ sourceMappingURL=#{path}"
+        @source_map_path = path
+        self << "\n//@ sourceMappingURL=#{source_map_path}"
       end
     end
     

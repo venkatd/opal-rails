@@ -13,7 +13,7 @@ module Opal
     
     def parse_with_source_map source, file='(file)'
       parse_without_source_map(source, file).tap do |parsed|
-        map = ::SourceMap.new(:file => file)
+        map = ::SourceMap.new(:file => "file://#{file}")
               
         parsed.lines.each_with_index do |line, index|
           generated_line = index+1

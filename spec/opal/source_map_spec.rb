@@ -12,10 +12,10 @@ describe Opal::SourceMap do
     <<-RUBY
     class ExampleClass
       def say_hi!
-        puts 'hi there!'
         # We throw from js it's tracked back 
         # to this method instead of the corelib
         `throw('asdf')`
+        puts 'hi there!'
       end
     end
     ExampleClass.new.say_hi!

@@ -8,7 +8,7 @@ module Opal
     end
     
     class << self
-      attr_accessor :maps_dir # Rails.root.join("public/__source_maps__/")
+      attr_accessor :maps_dir
     end
     
     def parse_with_source_map source, file='(file)'

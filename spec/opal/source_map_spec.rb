@@ -1,14 +1,14 @@
 require 'spec_helper'
 
 describe Opal::SourceMap do
-  let(:maps_dir) { File.expand_path('../../tmp/__source_maps__', __FILE__) }
-  let(:filename) { 'example_class.js.rb' }
-  let(:source_path)   { File.join maps_dir, filename }
-  let(:parsed_path)   { source_path.gsub(/\.rb$/,'') }
-  let(:map_file_path) { source_path + '.map' }
-  let(:map_url) { "file://#{map_file_path}" }
-  let(:parsed) { Opal.parse source, filename }
-  let(:source) { 
+  let(:maps_dir)    { File.expand_path('../../tmp/__source_maps__', __FILE__) }
+  let(:source_path) { File.join maps_dir, 'example_class.js.rb' }
+  let(:parsed_path) { source_path.gsub(/\.rb$/,'') }
+  let(:map_path)    { source_path + '.map' }
+  let(:map_url)     { "file://#{map_path}" }
+  let(:source_url)  { "file://#{source_path}" }
+  let(:parsed)      { Opal.parse source, source_path }
+  let(:source) do 
     <<-RUBY
     class ExampleClass
       def say_hi!
@@ -20,7 +20,7 @@ describe Opal::SourceMap do
     end
     ExampleClass.new.say_hi!
     RUBY
-  }
+  end
   
   before do
     FileUtils.rm_rf maps_dir 
@@ -31,7 +31,7 @@ describe Opal::SourceMap do
     parsed.should respond_to(:source_map)
     Dir[maps_dir + '/*'].should include(map_file_path)
     parsed.lines.to_a.last.should include(map_url)
-    File.read(map_file_path).should include(filename)
+    File.read(map_path).should    include(source_url)
   end
   
   after(:all) { write_files }

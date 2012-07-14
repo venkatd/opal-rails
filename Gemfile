@@ -3,9 +3,14 @@ source :rubygems
 # Dependencies specified in opal-rails.gemspec
 gemspec
 
+if File.exist? File.expand_path('~/Code/opal')
+  gem 'opal',     :require => false, :path => '~/Code/opal'
+  gem 'opal-dom', :require => false, :path => '~/Code/opal-dom'
+else
+  gem 'opal',     :require => false, :git => 'git://github.com/elia/opal.git'
+  gem 'opal-dom', :require => false, :git => 'git://github.com/adambeynon/opal-dom.git'
+end
 
-gem 'opal',     :git => 'git://github.com/elia/opal.git'
-gem 'opal-dom', :git => 'git://github.com/adambeynon/opal-dom.git'
 
 # Test app stuff
 

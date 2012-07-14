@@ -98,6 +98,15 @@ Then visit `/opal_spec` from your app and **reload at will**.
 
 
 
+### Source Maps
+
+_This is a Chrome only feature_
+
+Just look below:
+
+![mapped exception](https://p.twimg.com/AxtmRa2CMAAuzfz.png)
+
+
 
 ## License
 

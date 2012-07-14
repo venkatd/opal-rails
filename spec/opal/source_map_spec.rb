@@ -29,7 +29,7 @@ describe Opal::SourceMap do
   
   it 'sets cross paths in map and compiled files' do
     parsed.should respond_to(:source_map)
-    Dir[maps_dir + '/*'].should include(map_file_path)
+    Dir[maps_dir+'/*'].should     include(map_path)
     parsed.lines.to_a.last.should include(map_url)
     File.read(map_path).should    include(source_url)
   end

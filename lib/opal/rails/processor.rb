@@ -21,8 +21,11 @@ module Opal
       end
 
       def evaluate(scope, locals, &block)
-        raise inspect
-        Opal.parse(data, @file)
+        # @file can be absent
+        args = [data]
+        args << @file if @file
+        
+        Opal.parse(*args)
       end
     end
   end

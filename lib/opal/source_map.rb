@@ -5,10 +5,6 @@ module Opal
   module SourceMap
     module StringWithSourceMap
       attr_accessor :source_map, :source_map_path
-      def source_map_path= path
-        @source_map_path = path
-        self << "\n//@ sourceMappingURL=file://#{source_map_path}"
-      end
     end
     
     class << self
@@ -40,6 +36,7 @@ module Opal
         parsed.extend StringWithSourceMap
         parsed.source_map = map
         parsed.source_map_path = map_path
+        parsed << "\n//@ sourceMappingURL=file://#{map_path}"
         
         File.open(map_path, 'w') {|f| f << map}
       end

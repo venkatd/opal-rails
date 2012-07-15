@@ -8,7 +8,8 @@ if File.exist? File.expand_path('~/Code/opal')
   gem 'opal-dom',  :require => false, :path => '~/Code/opal-dom'
   gem 'opal-spec', :require => false, :path => '~/Code/opal-spec'
 else
-  gem 'opal',      :require => false, :git => 'git://github.com/adambeynon/opal.git', :branch => 'another-18-fix'
+  gem 'opal',      :require => false, :git => 'git://github.com/elia/opal.git', :branch => 'another-18-fix'
+  # gem 'opal',      :require => false, :git => 'git://github.com/adambeynon/opal.git'
   gem 'opal-dom',  :require => false, :git => 'git://github.com/adambeynon/opal-dom.git'
   gem 'opal-spec', :require => false, :git => 'git://github.com/adambeynon/opal-spec.git'
 end
